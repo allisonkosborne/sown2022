@@ -1,18 +1,37 @@
 import React from "react";
 import "./Seed.css";
+import { Link } from "react-router-dom";
 
-export const SeedCard = () => (
-  <section className="seed">
-    <h3 className="seed__name">Moringa</h3>
-    <div className="seed__packedForDate">Packed For Date: 01/05/2022</div>
-    <div className="seed__directSow">Direct Sow: No</div>
-    <div className="seed__daysToGerminate">Days to Germinate: 7-10</div>
-    <div className="seed__daysToMaturity">Days to Maturity: 120+</div>
-    <div className="seed__seedSpacing">Seed Spacing: 12"</div>
-    <div className="seed__temperature">Seed Temperature: 70-90F</div>
-    <div className="seed__lightNeeds">Light Needs: Full Sun</div>
-    <div className="seed__origin">Origin: Trade Winds Fruit</div>
-    <div className="seed__frostHardy">Frost Hardy: No</div>
-    <div className="seed__details">Large. Bring inside during Winter.</div>
-  </section>
-);
+export const SeedCard = ({ seed, handleDeleteSeed }) => {
+  return (
+    <div className="card">
+    <div className="card-content">
+      <picture>
+        {/* PLACE PICTURE/ICON HERE */}
+      </picture>
+      <h3>
+        Name: <span className="card-seedname">{seed.name}</span>
+      </h3>
+      <p>Latin Name: {seed.latinName}</p>
+      <p>Packed For Date: {seed.packedForDate}</p>
+      <p>Direct Sow: {seed.directSow}</p>
+      <p>Days To Germinate: {seed.daysToGerminate}</p>
+      <p>Days To Maturity: {seed.daysToMaturity}</p>
+      <p>Seed Spacing: {seed.seedSpacing}</p>
+      <p>Temperature: {seed.temperature}</p>
+      <p>Light Needs: {seed.lightNeeds}</p>
+      <p>Origin: {seed.origin}</p>
+      <p>Frost Hardy: {seed.frostHardy}</p>
+      <p>Details: {seed.details}</p>
+      <button type="button" onClick={() => 
+        handleDeleteSeed(seed.id)}>Discharge</button>
+
+      <Link to={`/seeds/${seed.id}`}>
+      <button>Details</button>
+      </Link>
+    </div>
+  </div>
+  );
+}
+
+

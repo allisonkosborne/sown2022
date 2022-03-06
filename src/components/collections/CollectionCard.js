@@ -1,14 +1,28 @@
 import React from "react";
 import "./Collection.css";
+import { Link } from "react-router-dom"
 
-export const CollectionCard = () => (
-  <section className="collection">
-    <h3 className="collection__name">
-      Collection Name: "Spring 2022 Collection"
-    </h3>
-    <div className="collection__dateMade">Date Made: 01/05/2022</div>
-    <div className="collection__details">
-      Details: I cannot wait to plant seeds!
+export const CollectionCard = ({ collection, handleDeleteCollection }) => 
+{
+  return (
+    <div className="card">
+      <div className="card-content">
+        <picture>
+          {/* ADD PICTURE/ICON HERE */}
+        </picture>
+        <h3>Name: <span className="card-collectionname">
+          {collection.name}
+        </span></h3>
+        <p>User Id: {collection.userId}</p>
+        <p>Date Made: {collection.dateMade}</p>
+        <p>Details: {collection.details}</p>
+        <button type="button" onClick={() => 
+          handleDeleteCollection(collection.id)}>Discharge</button>
+        
+        <Link to={`/collections/${collection.id}`}>
+        <button>Details</button>
+        </Link>
+      </div>
     </div>
-  </section>
-);
+  );
+}
