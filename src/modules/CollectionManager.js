@@ -16,3 +16,13 @@ export const deleteCollection = (id) => {
       method: "DELETE"
     }).then(result => result.json())
   }
+
+  export const addCollection = (newCollection) => {
+    return fetch(`${remoteURL}/collections`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newCollection)
+    }).then(response => response.json())
+}

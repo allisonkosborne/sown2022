@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getCollectionById } from '../../modules/CollectionManager';
+import { getCollectionById, deleteCollection } from '../../modules/CollectionManager';
 import './CollectionDetail.css';
 import { useParams, useNavigate } from "react-router-dom"
 
@@ -9,6 +9,14 @@ export const CollectionDetail = () => {
   const [isLoading, setIsLoading] = useState(true);
   const {collectionId} = useParams();
   const navigate = useNavigate();
+
+  const handleDelete = () => {
+    //invoke the delete function in AnimalManger and re-direct to the animal list.
+    setIsLoading(true);
+    deleteCollection(collectionId).then(() =>
+      navigate("/collections")
+    );
+  };
 
   useEffect(() => {
     //getAnimalById(id) from AnimalManager and hang on to the data; put it into state

@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { SeedCard } from './SeedCard';
 import { getAllSeeds, deleteSeed } from '../../modules/SeedManager';
+import { useNavigate } from 'react-router';
 
 export const SeedList = () => {
     // The initial state is an empty array
     const [seeds, setSeeds] = useState([]);
+
+    const navigate = useNavigate();
 
     const getSeeds = () => {
         return getAllSeeds().then(seedsfromAPI => {
@@ -22,6 +25,15 @@ export const SeedList = () => {
     };
 
     return(
+      < >
+    <section className="section-content">
+    <button type="button"
+      className="btn"
+      onClick={() => {navigate("/seeds/create")}}>
+      Add Seed
+    </button>
+    </section>
+
         <div className="container-cards">
           {seeds.map(seed =>
             <SeedCard key={seed.id} 
@@ -29,5 +41,6 @@ export const SeedList = () => {
             handleDeleteSeed={handleDeleteSeed}/>
           )}
         </div>
+        </ >
     );
 };

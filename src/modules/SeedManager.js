@@ -16,3 +16,13 @@ export const deleteSeed = (id) => {
       method: "DELETE"
     }).then(result => result.json())
   }
+
+  export const addSeed = (newSeed) => {
+    return fetch(`${remoteURL}/seeds`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newSeed)
+    }).then(response => response.json())
+}

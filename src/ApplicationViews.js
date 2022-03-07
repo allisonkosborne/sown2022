@@ -7,6 +7,8 @@ import { SeedList } from "./components/seed/SeedList"
 import { CollectionList } from "./components/collections/CollectionList"
 import { SeedDetail } from "./components/seed/SeedDetail"
 import { CollectionDetail } from "./components/collections/CollectionDetail"
+import { SeedForm } from './components/seed/SeedForm'
+import { CollectionForm } from './components/collection/CollectionForm'
 
 
 export const ApplicationViews = () => {
@@ -29,6 +31,10 @@ export const ApplicationViews = () => {
                 <Route exact path="/seeds" element={<SeedList />} />
 
                 <Route exact path="/collections" element={<CollectionList />} />
+
+                <Route path="/seeds/create" element={<SeedForm />} />
+
+                <Route path="/collections/create" element={<CollectionForm />} />
 
 
 

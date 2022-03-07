@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getSeedById } from '../../modules/SeedManager';
+import { getSeedById, deleteSeed } from '../../modules/SeedManager';
 import './SeedDetail.css';
 import { useParams, useNavigate } from "react-router-dom"
 
@@ -13,6 +13,14 @@ export const SeedDetail = () => {
 
   const {seedId} = useParams();
   const navigate = useNavigate();
+
+  const handleDelete = () => {
+    //invoke the delete function in AnimalManger and re-direct to the animal list.
+    setIsLoading(true);
+    deleteSeed(seedId).then(() =>
+      navigate("/seeds")
+    );
+  };
 
   useEffect(() => {
     //getAnimalById(id) from AnimalManager and hang on to the data; put it into state

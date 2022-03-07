@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { CollectionCard } from './CollectionCard';
 import { getAllCollections, deleteCollection } from '../../modules/CollectionManager';
+import { useNavigate } from 'react-router';
 
 export const CollectionList = () => {
     // The initial state is an empty array
     const [collections, setCollections] = useState([]);
+
+    const navigate = useNavigate();
 
     const getCollections = () => {
         return getAllCollections().then(collectionsfromAPI => {
@@ -21,9 +24,16 @@ export const CollectionList = () => {
         .then(() => getAllCollections().then(setCollections));
     };
 
-
-
     return(
+        < >
+    <section className="section-content">
+    <button type="button"
+      className="btn"
+      onClick={() => {navigate("/collections/create")}}>
+      Add Collection
+    </button>
+    </section>
+
         <div className="container-cards">
           {collections.map(collection =>
             <CollectionCard key={collection.id} 
@@ -31,5 +41,6 @@ export const CollectionList = () => {
             handleDeleteCollection={handleDeleteCollection}/>
           )}
         </div>
+        </ >
     );
 };
