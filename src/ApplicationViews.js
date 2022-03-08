@@ -11,6 +11,7 @@ import { SeedForm } from "./components/seed/SeedForm";
 import { CollectionForm } from "./components/collections/CollectionForm";
 import { Login } from "./components/auth/Login";
 import { Register } from "./components/auth/Register";
+import { SeedEditForm } from "./components/seed/SeedEditForm";
 
 export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
   const PrivateRoute = ({ children }) => {
@@ -95,6 +96,15 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
           element={
             <PrivateRoute>
               <CollectionForm />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/seeds/:seedId/edit"
+          element={
+            <PrivateRoute>
+              <SeedEditForm />
             </PrivateRoute>
           }
         />

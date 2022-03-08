@@ -24,6 +24,9 @@ export const SeedCard = ({ seed, handleDeleteSeed }) => {
         <button type="button" onClick={() => handleDeleteSeed(seed.id)}>
           Delete
         </button>
+        <Link to={`/seeds/${seed.id}/edit`}>
+          <button>Edit</button>
+        </Link>
 
         <Link to={`/seeds/${seed.id}`}>
           <button>Details</button>
