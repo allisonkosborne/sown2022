@@ -1,45 +1,104 @@
-import React from "react"
-import { Route, Routes } from "react-router-dom"
-import { Home } from "./Home"
-import { SeedCard } from "./components/seed/SeedCard.js"
-import { CollectionCard } from "./components/collections/CollectionCard.js"
-import { SeedList } from "./components/seed/SeedList"
-import { CollectionList } from "./components/collections/CollectionList"
-import { SeedDetail } from "./components/seed/SeedDetail"
-import { CollectionDetail } from "./components/collections/CollectionDetail"
-import { SeedForm } from './components/seed/SeedForm'
-import { CollectionForm } from './components/collection/CollectionForm'
+import React from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { Home } from "./Home";
+import { SeedCard } from "./components/seed/SeedCard.js";
+import { CollectionCard } from "./components/collections/CollectionCard.js";
+import { SeedList } from "./components/seed/SeedList";
+import { CollectionList } from "./components/collections/CollectionList";
+import { SeedDetail } from "./components/seed/SeedDetail";
+import { CollectionDetail } from "./components/collections/CollectionDetail";
+import { SeedForm } from "./components/seed/SeedForm";
+import { CollectionForm } from "./components/collections/CollectionForm";
+import { Login } from "./components/auth/Login";
+import { Register } from "./components/auth/Register";
 
+export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
+  const PrivateRoute = ({ children }) => {
+    return isAuthenticated ? children : <Navigate to="/login" />;
+  };
 
-export const ApplicationViews = () => {
-    return (
-        <>
-            <Routes>
-                {/* Render the location list when http://localhost:3000/ */}
-                <Route exact path="/" element={<Home />} />
+  //   redirecting users to /login if isAuthenticated
+  //   is false and allowing users to the route if isAuthenticated is true
 
-                {/* Render the animal list when http://localhost:3000/animals */}
-                <Route path="/seeds" element={<SeedCard />} />
+  const setAuthUser = (user) => {
+    sessionStorage.setItem("sown_user", JSON.stringify(user));
+    setIsAuthenticated(sessionStorage.getItem("sown_user") !== null);
+  };
+  return (
+    <>
+      <Routes>
+        {/* Render the location list when http://localhost:3000/ */}
+        <Route exact path="/" element={<Home />} />
 
-                 {/* Render the animal list when http://localhost:3000/animals */}
-                <Route path="/collections" element={<CollectionCard />} />
+        <Route
+          exact
+          path="/login"
+          element={<Login setAuthUser={setAuthUser} />}
+        />
+        <Route exact path="/register" element={<Register />} />
 
-                <Route exact path="/seeds/:seedId" element={<SeedDetail />} />
+        {/* Render the animal list when http://localhost:3000/animals */}
 
-                <Route exact path="/collections/:collectionId" element={<CollectionDetail />} />
+        {/* Render the animal list when http://localhost:3000/animals */}
 
-                <Route exact path="/seeds" element={<SeedList />} />
+        <Route
+          exact
+          path="/seeds/:seedId"
+          element={
+            <PrivateRoute>
+              <SeedDetail />
+            </PrivateRoute>
+          }
+        />
 
-                <Route exact path="/collections" element={<CollectionList />} />
+        <Route
+          exact
+          path="/collections/:collectionId"
+          element={
+            <PrivateRoute>
+              <CollectionDetail />
+            </PrivateRoute>
+          }
+        />
 
-                <Route path="/seeds/create" element={<SeedForm />} />
+        <Route
+          exact
+          path="/seeds"
+          element={
+            <PrivateRoute>
+              <SeedList />
+            </PrivateRoute>
+          }
+        />
 
-                <Route path="/collections/create" element={<CollectionForm />} />
+        <Route
+          exact
+          path="/collections"
+          element={
+            <PrivateRoute>
+              <CollectionList />
+            </PrivateRoute>
+          }
+        />
 
+        <Route
+          path="/seeds/create"
+          element={
+            <PrivateRoute>
+              <SeedForm />
+            </PrivateRoute>
+          }
+        />
 
-
-
-            </Routes>
-        </>
-    )
-}
+        <Route
+          path="/collections/create"
+          element={
+            <PrivateRoute>
+              <CollectionForm />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
+    </>
+  );
+};
