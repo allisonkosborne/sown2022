@@ -20,7 +20,8 @@ export const Sown = () => {
 
   return (
     <>
-      <NavBar />
+      <NavBar clearUser={clearUser} isAuthenticated={isAuthenticated} />
+      {/* 2 Props (function from kennel and variable from state pf kennel) */}
       <ApplicationViews
         setAuthUser={setAuthUser}
         isAuthenticated={isAuthenticated}
