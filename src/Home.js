@@ -1,26 +1,16 @@
 import React from "react";
 import { PropsAndState } from "./components/PropsAndState";
 import "./Home.css";
-import { useNavigate } from "react-router";
 
 export const Home = () => (
   <>
-    <div class="hero-image">
-      <div class="hero-text">
+    <div className="hero-image">
+      <div className="hero-text">
         <h1>Welcome to Sown!</h1>
         <p></p>
         <PropsAndState yourName={"Allison"} />
         <section className="section-content">
-          const navigate = useNavigate();
-          <button
-            type="button"
-            className="btn"
-            onClick={() => {
-              navigate("/seeds/create");
-            }}
-          >
-            Sow a Seed!
-          </button>
+          <button>Sow a Seed!</button>
         </section>
 
         <small>

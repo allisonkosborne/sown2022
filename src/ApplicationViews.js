@@ -30,7 +30,15 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
     <>
       <Routes>
         {/* Render the location list when http://localhost:3000/ */}
-        <Route exact path="/" element={<Home />} />
+        <Route
+          exact
+          path="/"
+          element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }
+        />
 
         <Route
           exact
