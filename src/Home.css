@@ -28,3 +28,49 @@ html {
   transform: translate(-50%, -50%);
   color: white;
 }
+
+.welcome {
+  text-align: center;
+  color: seagreen;
+  font-family: "Satisfy", cursive;
+  font-size: 75px;
+}
+
+.welcome-name {
+  text-align: center;
+  color: seagreen;
+  font-family: "Satisfy", cursive;
+  font-size: 35px;
+}
+
+.sow-button {
+  text-align: center;
+  font-family: fantasy;
+}
+
+.first-paragraph {
+  text-align: center;
+  border: 10px outset goldenrod;
+  padding: 1em;
+  margin: 25px 250px 5px 250px;
+  font-family: "Amatic SC", cursive;
+  font-size: 20px;
+  background-color: moccasin;
+  border-radius: 45px;
+}
+
+.second-paragraph {
+  text-align: center;
+  border: 10px outset goldenrod;
+  padding: 1em;
+  margin: 25px 200px 5px 200px;
+  font-family: "Amatic SC", cursive;
+  font-size: 25px;
+  background-color: moccasin;
+  border-radius: 45px;
+}
+
+/* html {
+  background: url(img_man.jpg) no-repeat center fixed;
+  background-size: cover;
+} */
