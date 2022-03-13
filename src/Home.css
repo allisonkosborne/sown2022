@@ -1,45 +1,37 @@
 body,
 html {
   height: 100%;
-}
-
-/* The hero image
-.hero-image {
-  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-/* background: url(/img1.jpg); */
-
-/* Set a specific height */
-/* height: 50%; */
-
-/* Position and center the image to scale nicely on all screens */
-/* background-position: center; */
-/* background-repeat: no-repeat; */
-/* background-size: cover; */
-/* position: relative; */
-/* } */
-*/
-
-/* Place text in the middle of the image */
-.hero-text {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
+  background-color: blanchedalmond;
+  cursor: url(../public/monstera.png), auto;
+  background-position-x: center;
+  background-image: url(/public/sownlogo3.png);
+  z-index: 1;
+  /* min-height: 15rem;
+  min-width: 30rem; */
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-attachment: fixed;
 }
 
 .welcome {
-  text-align: center;
   color: seagreen;
-  font-family: "Satisfy", cursive;
-  font-size: 75px;
+  font-family: "Amatic SC", cursive;
+  font-size: 124px;
+  background: linear-gradient(45deg, rgb(154, 180, 59), #ffea2f);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  text-align: center;
+  /* display: inline-block; */
 }
 
 .welcome-name {
   text-align: center;
   color: seagreen;
-  font-family: "Satisfy", cursive;
+  font-family: "Amatic SC", cursive;
   font-size: 35px;
 }
 
@@ -50,13 +42,14 @@ html {
 
 .first-paragraph {
   text-align: center;
-  border: 10px outset goldenrod;
+  border: 10px outset rgb(146, 187, 138);
   padding: 1em;
   margin: 25px 250px 5px 250px;
-  font-family: "Amatic SC", cursive;
+  font-family: "Gloria Hallelujah", cursive;
   font-size: 20px;
-  background-color: moccasin;
+  background-color: rgb(255, 228, 181);
   border-radius: 45px;
+  /* box-shadow:  */
 }
 
 .second-paragraph {
@@ -64,13 +57,13 @@ html {
   border: 10px outset goldenrod;
   padding: 1em;
   margin: 25px 200px 5px 200px;
-  font-family: "Amatic SC", cursive;
+  font-family: "Homemade Apple", cursive;
   font-size: 25px;
   background-color: moccasin;
   border-radius: 45px;
+  /* box-shadow:  */
 }
 
 /* html {
   background: url(img_man.jpg) no-repeat center fixed;
-  background-size: cover;
-} */
+  background-size: cover;}*/

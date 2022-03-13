@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { addSeed } from "../../modules/SeedManager";
 import "./SeedForm.css";
+import { getAllCollections } from "../../modules/CollectionManager";
 
 export const SeedForm = () => {
   // State will contain both animal data as well as an isLoading flag.
@@ -16,7 +17,7 @@ export const SeedForm = () => {
     daysToGerminate: 0,
     daysToMaturity: 0,
     seedSpacing: "",
-    temperature: "s",
+    temperature: "",
     lightNeeds: "",
     origin: "",
     frostHardy: "",
@@ -28,7 +29,7 @@ export const SeedForm = () => {
 
   // you will need the the `getAll` in the LocationsManager and CustomersManager to complete this section
 
-  // const [locations, setLocations] = useState([]);
+  const [collections, setCollections] = useState([]);
   // const [customers, setCustomers] = useState([]);
 
   const navigate = useNavigate();
@@ -56,6 +57,7 @@ export const SeedForm = () => {
 
   useEffect(() => {
     //load location data and setState
+    getAllCollections().then(setCollections);
   }, []);
 
   useEffect(() => {
@@ -65,11 +67,10 @@ export const SeedForm = () => {
   const handleClickSaveSeed = (event) => {
     event.preventDefault(); //Prevents the browser from submitting the form
 
-    const locationId = seed.locationId;
-    const customerId = seed.customerId;
+    const collectionId = seed.collectionId;
 
-    if (locationId === 0 || customerId === 0) {
-      window.alert("Please select a location and a customer");
+    if (collectionId === 0) {
+      window.alert("Please select a collection");
     } else {
       //invoke addAnimal passing animal as an argument.
       //once complete, change the url and display the animal list
@@ -260,20 +261,26 @@ export const SeedForm = () => {
           />
         </div>
       </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="collection">Assign to Collection: </label>
+          <select
+            value={seed.collectionId}
+            name="collectionId"
+            id="collectionId"
+            onChange={handleControlledInputChange}
+            className="form-control"
+          >
+            <option value="0">Select a Collection</option>
+            {collections.map((l) => (
+              <option key={l.id} value={l.id}>
+                {l.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </fieldset>
       {/* <fieldset>
-				<div className="form-group">
-					<label htmlFor="location">Assign to location: </label>
-					<select value={animal.locationId} name="locationId" id="locationId" onChange={handleControlledInputChange} className="form-control" >
-						<option value="0">Select a location</option>
-						{locations.map(l => (
-							<option key={l.id} value={l.id}>
-								{l.name}
-							</option>
-						))}
-					</select>
-				</div>
-			</fieldset>
-			<fieldset>
 				<div className="form-group">
 					<label htmlFor="customerId">Customer: </label>
 					<select value={animal.customerId} name="customer" id="customerId" onChange={handleControlledInputChange} className="form-control" >

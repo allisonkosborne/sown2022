@@ -1,0 +1,15 @@
+.seed-spotlight {
+  max-width: 400px;
+  display: flex;
+  border: 1px dashed gray;
+  padding: 10px;
+}
+
+.seed-spotlight img {
+  width: 200px;
+  margin-right: 20px;
+}
+
+.seed-spotlight p {
+  color: black;
+}

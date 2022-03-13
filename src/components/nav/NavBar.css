@@ -1,14 +1,19 @@
 .navbar {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: center;
-  color: brown;
+  justify-content: space-evenly;
 }
 
-.navbar__item {
+.navbar__item a {
   flex-basis: 20%;
   list-style-type: none;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 20px;
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 25px;
+  color: rgb(207, 157, 92);
+  list-style-type: none;
+}
+
+/* An "A" tag for the html element - with class name  */
+.navbar__item li {
+  list-style-type: none;
 }
