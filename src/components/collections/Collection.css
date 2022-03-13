@@ -25,6 +25,7 @@ img {
   flex: 0 1 24%;
   font-family: "Gloria Hallelujah", cursive;
   text-align: center;
+  font-size: 22px;
 }
 
 .card-content {

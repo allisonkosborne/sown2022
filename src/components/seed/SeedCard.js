@@ -18,7 +18,7 @@ export const SeedCard = ({ seed, handleDeleteSeed }) => {
           {/* <img src={"/public/apple-touch-icon.png"} alt="icon" /> */}
         </picture>
         <h3>
-          Name: <span className="card-seedname">{seed.name}</span>
+          <span className="card-seedname">{seed.name}</span>
         </h3>
         <p>Latin Name: {seed.latinName}</p>
         <p>Packed For Date: {seed.packedForDate}</p>

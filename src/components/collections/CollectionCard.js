@@ -12,7 +12,7 @@ export const CollectionCard = ({ collection, handleDeleteCollection }) => {
         </style>
         <picture>{/* ADD PICTURE/ICON HERE */}</picture>
         <h3>
-          Name: <span className="card-collectionname">{collection.name}</span>
+          <span className="card-collectionname">{collection.name}</span>
         </h3>
         <p>User Id: {collection.userId}</p>
         <p>Date Made: {collection.dateMade}</p>
