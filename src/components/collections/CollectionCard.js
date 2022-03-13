@@ -6,6 +6,10 @@ export const CollectionCard = ({ collection, handleDeleteCollection }) => {
   return (
     <div className="card">
       <div className="card-content">
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Gloria+Hallelujah&display=swap');
+        </style>
         <picture>{/* ADD PICTURE/ICON HERE */}</picture>
         <h3>
           Name: <span className="card-collectionname">{collection.name}</span>

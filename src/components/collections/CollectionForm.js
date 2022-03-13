@@ -78,6 +78,10 @@ export const CollectionForm = () => {
 
   return (
     <form className="collectionForm">
+      <style>
+        @import
+        url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Gloria+Hallelujah&display=swap');
+      </style>
       <h2 className="collectionForm__title">New Collection</h2>
       <fieldset>
         <div className="form-group">

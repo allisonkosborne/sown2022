@@ -63,6 +63,10 @@ export const SeedEditForm = () => {
   return (
     <>
       <form>
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Gloria+Hallelujah&display=swap');
+        </style>
         <fieldset>
           <div className="formgrid">
             <input

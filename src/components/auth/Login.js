@@ -29,6 +29,10 @@ export const Login = ({ setAuthUser }) => {
 
   return (
     <main className="container--login">
+      <style>
+        @import
+        url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Gloria+Hallelujah&display=swap');
+      </style>
       <dialog className="dialog dialog--auth" ref={existDialog}>
         <div>User does not exist</div>
         <button

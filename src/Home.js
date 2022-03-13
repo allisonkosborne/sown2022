@@ -12,7 +12,8 @@ export const Home = () => (
       </style>
       <div className="home-page">
         {/* <img src={"/image1.jpg"} alt="Flowers" /> */}
-        <h1 className="welcome">Welcome to Sown!</h1>
+        <h1 className="welcome">Sown</h1>
+        <h1 className="keepers">For the Seed Keepers</h1>
       </div>
       <p>
         <PropsAndState yourName={"Allison"} />

@@ -1,6 +1,7 @@
 .h1,
 h1 {
   font-size: 2.5rem;
+  font-family: "Gloria Hallelujah", cursive;
 }
 
 fieldset {
@@ -9,6 +10,7 @@ fieldset {
   margin: 0;
   border: 0;
   text-align: center;
+  font-family: "Gloria Hallelujah", cursive;
 }
 
 .form--login {
@@ -16,6 +18,7 @@ fieldset {
   margin: 0 auto;
   text-align: left;
   text-align: center;
+  font-family: "Gloria Hallelujah", cursive;
 }
 
 .form--login > fieldset > input[type="email"],
@@ -39,8 +42,8 @@ fieldset {
   font-family: "Gloria Hallelujah", cursive;
   font-weight: 400;
   line-height: 1.5;
-  color: #9de98e;
-  background-color: rgb(227, 243, 215);
+  color: #1b630c;
+  background-color: rgb(255, 253, 221);
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
@@ -76,4 +79,8 @@ fieldset {
   min-width: 15rem;
   min-height: 5rem;
   text-align: center;
+}
+
+.link--register {
+  font-family: "Gloria Hallelujah", cursive;
 }

@@ -1,9 +1,13 @@
 #root > .card {
-    max-width: 400px;
-    margin: 10px auto;
-  }
+  max-width: 400px;
+  margin: 10px auto;
+}
 
 button:disabled,
 button:disabled:hover {
-    background-color: lightgray;
-  }
+  background-color: lightgray;
+}
+
+.collection {
+  font-family: "Gloria Hallelujah", cursive;
+}

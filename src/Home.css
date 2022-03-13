@@ -17,7 +17,9 @@ html {
 .welcome {
   color: seagreen;
   font-family: "Amatic SC", cursive;
-  font-size: 124px;
+  font-size: 280px;
+  padding: 0.01em;
+  margin: 25px 250px 1px 250px;
   background: linear-gradient(45deg, rgb(154, 180, 59), #ffea2f);
   background-clip: text;
   -webkit-background-clip: text;
@@ -28,11 +30,28 @@ html {
   /* display: inline-block; */
 }
 
+.keepers {
+  color: seagreen;
+  font-family: "Amatic SC", cursive;
+  font-size: 45px;
+  padding: 0.05em;
+  margin: 0.1px 250px 5px 250px;
+  background: linear-gradient(45deg, rgb(54, 100, 35), #ffea2f);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  text-align: center;
+}
+
 .welcome-name {
   text-align: center;
   color: seagreen;
   font-family: "Amatic SC", cursive;
   font-size: 35px;
+  padding: 12%;
+  margin: 5px 200px 5px 200px;
 }
 
 .sow-button {
@@ -42,14 +61,14 @@ html {
 
 .first-paragraph {
   text-align: center;
-  border: 10px outset rgb(146, 187, 138);
-  padding: 1em;
-  margin: 25px 250px 5px 250px;
+  border: 5px outset rgb(33, 119, 52);
+  padding: 0.5em;
+  margin: 1px 250px 5px 250px;
   font-family: "Gloria Hallelujah", cursive;
-  font-size: 20px;
+  font-size: 23px;
   background-color: rgb(255, 228, 181);
   border-radius: 45px;
-  /* box-shadow:  */
+  /* box-shadow: 100px 100px; */
 }
 
 .second-paragraph {

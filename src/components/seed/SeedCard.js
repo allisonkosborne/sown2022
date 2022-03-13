@@ -10,6 +10,10 @@ export const SeedCard = ({ seed, handleDeleteSeed }) => {
   return (
     <div className="card">
       <div className="card-content">
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Gloria+Hallelujah&display=swap');
+        </style>
         <picture>
           {/* <img src={"/public/apple-touch-icon.png"} alt="icon" /> */}
         </picture>
