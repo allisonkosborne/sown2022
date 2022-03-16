@@ -3,3 +3,24 @@
   font-family: "Gloria Hallelujah", cursive;
   font-size: 20px;
 }
+
+/* input[type="button"] {
+  position: absolute;
+  z-index: -1;
+  top: 10px;
+  left: 8px;
+  font-size: 17px;
+  color: #b8b8b8;
+} */
+btn btn-primary {
+  background-color: darkseagreen;
+}
+
+input[type="button"] {
+  position: absolute;
+  z-index: -1;
+  top: 10px;
+  left: 8px;
+  font-size: 17px;
+  color: #b8b8b8;
+}

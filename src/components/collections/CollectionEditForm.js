@@ -56,6 +56,7 @@ export const CollectionEditForm = () => {
         </style>
         <fieldset>
           <div className="formgrid">
+            <label htmlFor="name">Collection name</label>
             <input
               type="text"
               required
@@ -64,8 +65,8 @@ export const CollectionEditForm = () => {
               id="name"
               value={collection.name}
             />
-            <label htmlFor="name">Collection name</label>
 
+            <label htmlFor="userId">User ID</label>
             <input
               type="text"
               required
@@ -74,8 +75,8 @@ export const CollectionEditForm = () => {
               id="userId"
               value={collection.userId}
             />
-            <label htmlFor="userId">User ID</label>
 
+            <label htmlFor="dateMade">Date Made</label>
             <input
               type="text"
               required
@@ -84,8 +85,8 @@ export const CollectionEditForm = () => {
               id="dateMade"
               value={collection.dateMade}
             />
-            <label htmlFor="dateMade">Date Made</label>
 
+            <label htmlFor="details">Details</label>
             <input
               type="text"
               required
@@ -94,7 +95,6 @@ export const CollectionEditForm = () => {
               id="details"
               value={collection.details}
             />
-            <label htmlFor="details">Details</label>
           </div>
           <div className="alignRight">
             <button
@@ -103,7 +103,7 @@ export const CollectionEditForm = () => {
               onClick={updateExistingCollection}
               className="btn btn-primary"
             >
-              Submit
+              SOW
             </button>
           </div>
         </fieldset>

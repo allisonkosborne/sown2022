@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getSeedById, updateSeed } from "../../modules/SeedManager";
+import { getSeedById, updateSeed, addSeed } from "../../modules/SeedManager";
 import "./SeedForm.css";
+import { getAllCollections } from "../../modules/CollectionManager";
 
 export const SeedEditForm = () => {
   const [seed, setSeed] = useState({
@@ -18,11 +19,13 @@ export const SeedEditForm = () => {
     origin: "",
     frostHardy: "",
     details: "",
+    
   });
   const [isLoading, setIsLoading] = useState(false);
 
   const { seedId } = useParams();
   const navigate = useNavigate();
+  const [collections, setCollections] = useState([]);
 
   const handleFieldChange = (evt) => {
     const stateToChange = { ...seed };
@@ -33,6 +36,17 @@ export const SeedEditForm = () => {
   const updateExistingSeed = (evt) => {
     evt.preventDefault();
     setIsLoading(true);
+
+    const collectionId = seed.collectionId;
+
+    if (collectionId === 0) {
+      window.alert("Please select a collection");
+    } else {
+      //invoke addAnimal passing animal as an argument.
+      //once complete, change the url and display the animal list
+      addSeed(seed).then(() => navigate("/seeds"));
+    }
+
 
     // This is an edit, so we need the id
     const editedSeed = {
@@ -60,6 +74,11 @@ export const SeedEditForm = () => {
     });
   }, []);
 
+  useEffect(() => {
+    //load location data and setState
+    getAllCollections().then(setCollections);
+  }, []);
+
   return (
     <>
       <form>
@@ -69,6 +88,7 @@ export const SeedEditForm = () => {
         </style>
         <fieldset>
           <div className="formgrid">
+            <label htmlFor="name">Seed name</label>
             <input
               type="text"
               required
@@ -77,19 +97,19 @@ export const SeedEditForm = () => {
               id="name"
               value={seed.name}
             />
-            <label htmlFor="name">Seed name</label>
 
+            <label htmlFor="packedForDate">Packed for Date</label>
             <input
               type="text"
               required
               className="form-control"
               onChange={handleFieldChange}
-              id="breed"
+              id="packedForDate"
               value={seed.packedForDate}
             />
-            <label htmlFor="packedForDate">Packed for Date</label>
           </div>
 
+          <label htmlFor="directSow">Direct Sow</label>
           <input
             type="text"
             required
@@ -98,8 +118,8 @@ export const SeedEditForm = () => {
             id="directSow"
             value={seed.directSow}
           />
-          <label htmlFor="directSow">Direct Sow</label>
 
+          <label htmlFor="daysToGerminate">Days To Germinate</label>
           <input
             type="text"
             required
@@ -108,8 +128,8 @@ export const SeedEditForm = () => {
             id="daysToGerminate"
             value={seed.daysToGerminate}
           />
-          <label htmlFor="daysToGerminate">Days To Germinate</label>
 
+          <label htmlFor="daysToMaturity">Days To Maturity</label>
           <input
             type="text"
             required
@@ -118,8 +138,8 @@ export const SeedEditForm = () => {
             id="daysToMaturity"
             value={seed.daysToMaturity}
           />
-          <label htmlFor="daysToMaturity">Days To Maturity</label>
 
+          <label htmlFor="seedSpacing">Seed Spacing</label>
           <input
             type="text"
             required
@@ -128,8 +148,8 @@ export const SeedEditForm = () => {
             id="seedSpacing"
             value={seed.seedSpacing}
           />
-          <label htmlFor="seedSpacing">Seed Spacing</label>
 
+          <label htmlFor="temperature">Temperature</label>
           <input
             type="text"
             required
@@ -138,8 +158,8 @@ export const SeedEditForm = () => {
             id="temperature"
             value={seed.temperature}
           />
-          <label htmlFor="temperature">Temperature</label>
 
+          <label htmlFor="lightNeeds">Light Needs</label>
           <input
             type="text"
             required
@@ -148,8 +168,8 @@ export const SeedEditForm = () => {
             id="lightNeeds"
             value={seed.lightNeeds}
           />
-          <label htmlFor="lightNeeds">Light Needs</label>
 
+          <label htmlFor="origin">Origin</label>
           <input
             type="text"
             required
@@ -158,8 +178,8 @@ export const SeedEditForm = () => {
             id="origin"
             value={seed.origin}
           />
-          <label htmlFor="origin">Origin</label>
 
+          <label htmlFor="frostHardy">Frost Hardy</label>
           <input
             type="text"
             required
@@ -168,8 +188,8 @@ export const SeedEditForm = () => {
             id="frostHardy"
             value={seed.frostHardy}
           />
-          <label htmlFor="frostHardy">Frost Hardy</label>
 
+          <label htmlFor="details">Details</label>
           <input
             type="text"
             required
@@ -178,7 +198,23 @@ export const SeedEditForm = () => {
             id="details"
             value={seed.details}
           />
-          <label htmlFor="details">Details</label>
+
+          <label htmlFor="collection">Assign to Collection: </label>
+          <select
+            value={seed.collectionId}
+            name="collectionId"
+            id="collectionId"
+            onChange={handleFieldChange}
+            className="form-control"
+          >
+            <option value="0">Your Collections</option>
+            {collections.map((l) => (
+              <option key={l.id} value={l.id}>
+                {l.name}
+              </option>
+            ))}
+          </select>
+    
 
           <div className="alignRight">
             <button
@@ -187,7 +223,7 @@ export const SeedEditForm = () => {
               onClick={updateExistingSeed}
               className="btn btn-primary"
             >
-              Submit
+              SOW
             </button>
           </div>
         </fieldset>

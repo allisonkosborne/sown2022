@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; //For the Save Animal Button
 import { addCollection } from "../../modules/CollectionManager"; //Passed to the API that says animal & the Save Animal button
 import "./CollectionForm.css";
+import { getAllSeeds } from "../../modules/SeedManager";
 // import { getAllLocations } from '../../modules/LocationManager';
 // import { getAllCustomers } from '../../modules/CustomerManager';
 
@@ -23,7 +24,7 @@ export const CollectionForm = () => {
   //if true, it wont allow you to use the form;
 
   // you will need the the `getAll` in the LocationsManager and CustomersManager to complete this section
-  // const [locations, setLocations] = useState([]);
+  const [seeds, setSeeds] = useState([]);
   // const [customers, setCustomers] = useState([]); //both set to empty arrays - any value it gets set to will be an array
 
   const navigate = useNavigate();
@@ -53,6 +54,7 @@ export const CollectionForm = () => {
   useEffect(() => {
     //load location data and setState
     // getAllLocations().then(setLocations)
+    getAllSeeds().then(setSeeds);
   }, []);
   //just run one time with []
 
@@ -64,7 +66,7 @@ export const CollectionForm = () => {
   const handleClickSaveCollection = (event) => {
     event.preventDefault(); //Prevents the browser from submitting the form
 
-    // const locationId = animal.locationId
+    const seedId = seeds.collectionId;
     // const customerId = animal.customerId
 
     // if (locationId === 0 || customerId === 0) {
@@ -154,9 +156,16 @@ export const CollectionForm = () => {
 					</select>
 				</div>
 			</fieldset> */}
-      <button className="btn btn-primary" onClick={handleClickSaveCollection}>
-        Save Collection
-      </button>
+      <div className="container">
+        <button
+          type="button"
+          id="mybutton"
+          className="btn btn-primary"
+          onClick={handleClickSaveCollection}
+        >
+          SOW
+        </button>
+      </div>
     </form>
   );
 };

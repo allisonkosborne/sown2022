@@ -8,7 +8,10 @@ export const getCollectionById = (collectionId) => {
 };
 
 export const getAllCollections = () => {
-  return fetch(`${remoteURL}/collections`).then((res) => res.json());
+  const userId = JSON.parse(sessionStorage.getItem("sown_user")).id;
+  return fetch(`${remoteURL}/collections?_expand=user&userId=${userId}`).then(
+    (res) => res.json()
+  );
 };
 
 export const deleteCollection = (id) => {

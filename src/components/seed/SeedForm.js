@@ -85,6 +85,7 @@ export const SeedForm = () => {
         url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Gloria+Hallelujah&display=swap');
       </style>
       <h2 className="seedForm__title">New Seed</h2>
+
       <fieldset>
         <div className="form-group">
           <label htmlFor="name">Seed name:</label>
@@ -105,7 +106,7 @@ export const SeedForm = () => {
           <label htmlFor="latinName">Latin name:</label>
           <input
             type="text"
-            id="latin-name"
+            id="latinName"
             onChange={handleControlledInputChange}
             required
             autoFocus
@@ -120,7 +121,7 @@ export const SeedForm = () => {
           <label htmlFor="packedForDate">Packed for date:</label>
           <input
             type="text"
-            id="packed-for-date"
+            id="packedForDate"
             onChange={handleControlledInputChange}
             required
             autoFocus
@@ -135,7 +136,7 @@ export const SeedForm = () => {
           <label htmlFor="directSow">Direct sow:</label>
           <input
             type="text"
-            id="direct-sow"
+            id="directSow"
             onChange={handleControlledInputChange}
             required
             autoFocus
@@ -150,7 +151,7 @@ export const SeedForm = () => {
           <label htmlFor="daysToGerminate">Days to germinate:</label>
           <input
             type="text"
-            id="days-to-germinate"
+            id="daysToGerminate"
             onChange={handleControlledInputChange}
             required
             autoFocus
@@ -165,7 +166,7 @@ export const SeedForm = () => {
           <label htmlFor="daysToMaturity">Days to maturity:</label>
           <input
             type="text"
-            id="days-to-maturity"
+            id="daysToMaturity"
             onChange={handleControlledInputChange}
             required
             autoFocus
@@ -180,7 +181,7 @@ export const SeedForm = () => {
           <label htmlFor="seedSpacing">Seed spacing:</label>
           <input
             type="text"
-            id="seed-spacing"
+            id="seedSpacing"
             onChange={handleControlledInputChange}
             required
             autoFocus
@@ -210,7 +211,7 @@ export const SeedForm = () => {
           <label htmlFor="lightNeeds">Light needs:</label>
           <input
             type="text"
-            id="light-needs"
+            id="lightNeeds"
             onChange={handleControlledInputChange}
             required
             autoFocus
@@ -240,7 +241,7 @@ export const SeedForm = () => {
           <label htmlFor="frostHardy">Frost hardy:</label>
           <input
             type="text"
-            id="frost-hardy"
+            id="frostHardy"
             onChange={handleControlledInputChange}
             required
             autoFocus
@@ -275,7 +276,7 @@ export const SeedForm = () => {
             onChange={handleControlledInputChange}
             className="form-control"
           >
-            <option value="0">Select a Collection</option>
+            <option value="0">Your Collections</option>
             {collections.map((l) => (
               <option key={l.id} value={l.id}>
                 {l.name}
@@ -298,7 +299,7 @@ export const SeedForm = () => {
 				</div>
 			</fieldset> */}
       <button className="btn btn-primary" onClick={handleClickSaveSeed}>
-        Save Seed
+        SOW
       </button>
     </form>
   );
