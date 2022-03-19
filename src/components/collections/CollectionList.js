@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CollectionCard } from "./CollectionCard";
 import {
-  getAllCollections,
+  getMyCollections,
   deleteCollection,
 } from "../../modules/CollectionManager";
 import { useNavigate } from "react-router";
@@ -13,7 +13,7 @@ export const CollectionList = () => {
   const navigate = useNavigate();
 
   const getCollections = () => {
-    return getAllCollections().then((collectionsfromAPI) => {
+    return getMyCollections().then((collectionsfromAPI) => {
       setCollections(collectionsfromAPI);
     });
   };
@@ -23,7 +23,7 @@ export const CollectionList = () => {
   }, []);
 
   const handleDeleteCollection = (id) => {
-    deleteCollection(id).then(() => getAllCollections().then(setCollections));
+    deleteCollection(id).then(() => getMyCollections().then(setCollections));
   };
 
   return (

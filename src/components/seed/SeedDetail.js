@@ -40,7 +40,7 @@ export const SeedDetail = () => {
   }, [seedId]);
 
   return (
-    <section className="seed">
+    <section className="seeds">
       <style>
         @import
         url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Gloria+Hallelujah&display=swap');

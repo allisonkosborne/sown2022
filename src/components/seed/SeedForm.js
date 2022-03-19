@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { addSeed } from "../../modules/SeedManager";
 import "./SeedForm.css";
 import { getAllCollections } from "../../modules/CollectionManager";
+import { addSeedToCollection } from "../../modules/SeedManager";
 
 export const SeedForm = () => {
   // State will contain both animal data as well as an isLoading flag.
@@ -64,7 +65,27 @@ export const SeedForm = () => {
     //load customer data and setState
   }, []);
 
+
+
   const handleClickSaveSeed = (event) => {
+
+    // const userId = JSON.parse(sessionStorage.getItem("sown_user")).id;
+    // const userSeedCollectionId = collectionId.userSeedCollectionId
+    // const collectionId = seed.collectionId;
+    // const seedId = userSeedCollectionId.seedId
+
+    // const newSeedToCollection = {
+    //   usersId: userId,
+    //   collectionId: collectionId,
+    //   seedId: seedId,
+    //   userSeedCollectionId: userSeedCollectionId
+    // }
+
+    // addSeedToCollection(newSeedToCollection)
+
+
+
+
     event.preventDefault(); //Prevents the browser from submitting the form
 
     const collectionId = seed.collectionId;
@@ -266,6 +287,7 @@ export const SeedForm = () => {
           />
         </div>
       </fieldset>
+{/*       
       <fieldset>
         <div className="form-group">
           <label htmlFor="collection">Assign to Collection: </label>
@@ -284,7 +306,8 @@ export const SeedForm = () => {
             ))}
           </select>
         </div>
-      </fieldset>
+      </fieldset> */}
+
       {/* <fieldset>
 				<div className="form-group">
 					<label htmlFor="customerId">Customer: </label>

@@ -15,22 +15,44 @@ export const deleteSeed = (id) => {
   }).then((result) => result.json());
 };
 
+// export const addSeed = (newSeed) => {
+//   return fetch(`${remoteURL}/seeds`, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify(newSeed),
+//   }).then((response) => response.json());
+// };
+
+
 export const addSeed = (newSeed) => {
   return fetch(`${remoteURL}/seeds`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify(newSeed),
-  }).then((response) => response.json());
+    body: JSON.stringify(newSeed)
+  }).then(response => response.json());
 };
 
 export const updateSeed = (editedSeed) => {
-  return fetch(`${remoteURL}/seed/${editedSeed.id}`, {
+  return fetch(`${remoteURL}/seeds/${editedSeed.id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(editedSeed),
   }).then((data) => data.json());
+};
+
+
+export const addSeedToCollection = (newSeed) => {
+  return fetch(`${remoteURL}/seeds`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newSeed)
+  }).then(response => response.json());
 };

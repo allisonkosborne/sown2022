@@ -64,7 +64,7 @@ export const SeedEditForm = () => {
       details: seed.details,
     };
 
-    updateSeed(editedSeed).then(() => navigate("/seed"));
+    updateSeed(editedSeed).then(() => navigate("/seeds"));
   };
 
   useEffect(() => {
@@ -199,7 +199,7 @@ export const SeedEditForm = () => {
             value={seed.details}
           />
 
-          <label htmlFor="collection">Assign to Collection: </label>
+          {/* <label htmlFor="collection">Assign to Collection: </label>
           <select
             value={seed.collectionId}
             name="collectionId"
@@ -213,7 +213,7 @@ export const SeedEditForm = () => {
                 {l.name}
               </option>
             ))}
-          </select>
+          </select> */}
     
 
           <div className="alignRight">
@@ -222,8 +222,7 @@ export const SeedEditForm = () => {
               disabled={isLoading}
               onClick={updateExistingSeed}
               className="btn btn-primary"
-            >
-              SOW
+            >SOW
             </button>
           </div>
         </fieldset>

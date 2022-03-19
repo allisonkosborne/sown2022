@@ -69,13 +69,13 @@ export const CollectionForm = () => {
     const seedId = seeds.collectionId;
     // const customerId = animal.customerId
 
-    // if (locationId === 0 || customerId === 0) {
-    //   window.alert("Please select a location and a customer");
-    // } else {
-    //   //invoke addAnimal passing animal as an argument.
-    //   //once complete, change the url and display the animal list
-    //   addCollection(collection).then(() => navigate("/collections"));
-    // }
+    if (seedId === 0) {
+      window.alert("Please select a seed");
+    } else {
+      //invoke addAnimal passing animal as an argument.
+      //once complete, change the url and display the animal list
+      addCollection(collection).then(() => navigate("/collections"));
+    }
   };
 
   return (
