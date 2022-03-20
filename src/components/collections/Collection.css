@@ -73,3 +73,23 @@ img {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+
+button.btn {
+
+  background-color: rgb(170, 204, 154);
+  /* border: none;
+  /* color: rgb(43, 42, 39); */
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  padding: .75em;
+  border-radius: 35px;
+  margin: 2em;
+  width: 25%;
+font-family: "Gloria Hallelujah", cursive;
+}
+
+.btn button:hover {
+  background-color: rgb(189, 130, 2);
+}

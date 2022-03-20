@@ -321,9 +321,11 @@ export const SeedForm = () => {
 					</select>
 				</div>
 			</fieldset> */}
+      <div className="container">
       <button className="btn btn-primary" onClick={handleClickSaveSeed}>
         SOW
       </button>
+      </div>
     </form>
   );
 };

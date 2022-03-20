@@ -49,6 +49,7 @@ export const Login = ({ setAuthUser }) => {
           <h2>Please sign in</h2>
           <fieldset>
             <label htmlFor="inputEmail"> Email address </label>
+            <div className="emailAddress">
             <input
               ref={email}
               type="email"
@@ -58,9 +59,12 @@ export const Login = ({ setAuthUser }) => {
               required
               autoFocus
             />
+          </div>
           </fieldset>
           <fieldset>
-            <button type="submit">Sign in</button>
+            <div className="signButton">
+            <button className="signInButton" type="submit">Sign in</button>
+            </div>
           </fieldset>
         </form>
       </section>

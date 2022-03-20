@@ -80,7 +80,6 @@ img {
   }
 
 button.seed-button {
-
   background-color: rgb(170, 204, 154);
   /* border: none;
   /* color: rgb(43, 42, 39); */
@@ -92,5 +91,9 @@ button.seed-button {
   margin: 2em;
   width: 25%;
 font-family: "Gloria Hallelujah", cursive;
+}
+
+.section-content button:hover {
+  background-color: rgb(189, 130, 2);
 }
 

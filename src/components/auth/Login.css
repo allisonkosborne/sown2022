@@ -53,6 +53,7 @@ fieldset {
   text-align: center;
 }
 
+
 .container--login {
   text-align: center;
 }
@@ -83,4 +84,29 @@ fieldset {
 
 .link--register {
   font-family: "Gloria Hallelujah", cursive;
+}
+
+.emailAddress {
+  text-align: right;
+  padding: 1rem;
+  margin: 1em;
+  width: 93%;
+}
+
+.signInButton {
+  background-color: rgb(170, 204, 154);
+  /* border: none;
+  /* color: rgb(43, 42, 39); */
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  padding: .5em;
+  border-radius: 35px;
+  margin: .35em;
+  width: 25%;
+font-family: "Gloria Hallelujah", cursive;
+}
+
+.signButton button:hover {
+  background-color: rgb(189, 130, 2);
 }
