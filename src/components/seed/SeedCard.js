@@ -1,12 +1,14 @@
 import React from "react";
 import "./Seed.css";
-import { Link } from "react-router-dom";
-import {
-  addCollection,
-  getAllCollections,
-} from "../../modules/CollectionManager";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+// import {
+//   addCollection,
+//   getAllCollections,
+// } from "../../modules/CollectionManager";
 
 export const SeedCard = ({ seed, handleDeleteSeed }) => {
+  const navigate = useNavigate()
+
   return (
     <div className="card">
       <div className="card-content">
@@ -42,6 +44,9 @@ export const SeedCard = ({ seed, handleDeleteSeed }) => {
         <Link to={`/seeds/${seed.id}`}>
           <button>Details</button>
         </Link>
+
+        <button type="button" onClick={() => {navigate(`/selectCollection`)}}>Add To Collection</button>
+       
         {/* <button>SAVE FOR COLLECTION DROPDOWN</button> */}
       </div>
     </div>

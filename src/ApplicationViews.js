@@ -13,6 +13,7 @@ import { Login } from "./components/auth/Login";
 import { Register } from "./components/auth/Register";
 import { SeedEditForm } from "./components/seed/SeedEditForm";
 import { CollectionEditForm } from "./components/collections/CollectionEditForm";
+import { SelectCollectionForm } from "./components/SelectCollection/SelectCollection"
 
 export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
   const PrivateRoute = ({ children }) => {
@@ -126,6 +127,18 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
             </PrivateRoute>
           }
         />
+
+
+        <Route
+          path="/selectCollection"
+          element={
+            <PrivateRoute>
+              <SelectCollectionForm />
+            </PrivateRoute>
+          }
+        />
+
+
       </Routes>
     </>
   );
