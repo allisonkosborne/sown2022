@@ -51,7 +51,7 @@ img {
   color: rgb(70, 148, 34);
 }
 
-.card button {
+/* .card button {
   background-color: green;
   border: none;
   color: cornsilk;
@@ -63,7 +63,7 @@ img {
   border-radius: 10px;
   margin: 0.1em;
   width: 50%;
-}
+} */
 
 .card button:hover {
   background-color: rgb(189, 130, 2);
@@ -74,3 +74,23 @@ img {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.section-content {
+  text-align: center;
+  }
+
+button.seed-button {
+
+  background-color: rgb(170, 204, 154);
+  /* border: none;
+  /* color: rgb(43, 42, 39); */
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  padding: .75em;
+  border-radius: 35px;
+  margin: 2em;
+  width: 25%;
+font-family: "Gloria Hallelujah", cursive;
+}
+
