@@ -15,7 +15,7 @@ export const deleteSeed = (id) => {
   }).then((result) => result.json());
 };
 
-// export const addSeed = (newSeed) => {
+// export const  = (newSeed) => {
 //   return fetch(`${remoteURL}/seeds`, {
 //     method: "POST",
 //     headers: {

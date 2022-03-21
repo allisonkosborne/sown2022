@@ -130,7 +130,7 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
 
 
         <Route
-          path="/selectCollection"
+          path="/seeds/${seed.id}/selectCollection"
           element={
             <PrivateRoute>
               <SelectCollectionForm />

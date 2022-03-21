@@ -45,7 +45,7 @@ export const SeedCard = ({ seed, handleDeleteSeed }) => {
           <button>Details</button>
         </Link>
 
-        <button type="button" onClick={() => {navigate(`/selectCollection`)}}>Add To Collection</button>
+        <button type="button" onClick={() => {navigate(`/seeds/${seed.id}/selectCollection`)}}>Add To Collection</button>
        
         {/* <button>SAVE FOR COLLECTION DROPDOWN</button> */}
       </div>
