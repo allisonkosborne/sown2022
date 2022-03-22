@@ -13,7 +13,7 @@ export const SaveToCollectionCard = ({ collection, handleSaveSeedToCollection })
         <h3>
           <span className="card-collectionname">{collection?.name}</span>
         </h3>
-        
+        {/* <p>Collection Name: {collection.name}</p> */}
         <p>Date Made: {collection?.dateMade}</p>
 
         <button
