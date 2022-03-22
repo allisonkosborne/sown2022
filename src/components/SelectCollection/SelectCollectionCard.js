@@ -1,25 +1,29 @@
 import React from "react";
-import { SelectCollectionForm } from "./SelectCollection";
+import { Link } from "react-router-dom";
 
-
-export const SelectCollectionCard = ({ collection, handleSelectCollection }) => {
-    return (
-      <div className="card">
-        <div className="card-content">
-          <picture>
-            {/* <img src={'/images/dog.svg'} alt="My Dog" /> */}
-          </picture>
-     
-          <h3>
-          <span className="card-collectionname">{collection.name}</span>
-          <button type="button" onClick={() => handleSelectCollection(collection.id)}>
-              Pick a Collection!</button>
-
+export const SaveToCollectionCard = ({ collection, handleSaveSeedToCollection }) => {
+  return (
+    <div className="card">
+      <div className="card-content">
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Gloria+Hallelujah&display=swap');
+        </style>
+        <picture>{/* ADD PICTURE/ICON HERE */}</picture>
+        <h3>
+          <span className="card-collectionname">{collection?.name}</span>
         </h3>
-        {/* <p>Date Made: {collection.dateMade}</p>
-        <p>Details: {collection.details}</p> */}
+        
+        <p>Date Made: {collection?.dateMade}</p>
 
-        </div>
+        <button
+          type="button"
+          onClick={() => handleSaveSeedToCollection(collection.id)}
+        >
+          Save To Collection
+        </button>
+
       </div>
-    );
-  }
+    </div>
+  );
+};

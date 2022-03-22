@@ -14,6 +14,7 @@ import { Register } from "./components/auth/Register";
 import { SeedEditForm } from "./components/seed/SeedEditForm";
 import { CollectionEditForm } from "./components/collections/CollectionEditForm";
 import { SelectCollectionForm } from "./components/SelectCollection/SelectCollection"
+import { SaveToCollectionCard, SelectCollectionCard } from "./components/SelectCollection/SelectCollectionCard";
 
 export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
   const PrivateRoute = ({ children }) => {
@@ -130,10 +131,10 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
 
 
         <Route
-          path="/seeds/${seed.id}/selectCollection"
+          path="/seeds/:seedId/selectCollection"
           element={
             <PrivateRoute>
-              <SelectCollectionForm />
+              <SaveToCollectionCard />
             </PrivateRoute>
           }
         />
