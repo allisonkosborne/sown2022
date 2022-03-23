@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const SaveToCollectionCard = ({ collection, handleSaveSeedToCollection }) => {
+export const SaveToCollectionCard = ({ userSeedCollection, handleSaveSeedToCollection }) => {
   return (
     <div className="card">
       <div className="card-content">
@@ -11,14 +11,14 @@ export const SaveToCollectionCard = ({ collection, handleSaveSeedToCollection })
         </style>
         <picture>{/* ADD PICTURE/ICON HERE */}</picture>
         <h3>
-          <span className="card-collectionname">{collection?.name}</span>
+          <span className="card-collectionname">Test</span>
         </h3>
         
-        <p>Date Made: {collection?.dateMade}</p>
+        <p>Date Made: </p>
 
         <button
           type="button"
-          onClick={() => handleSaveSeedToCollection(collection.id)}
+          onClick={() => handleSaveSeedToCollection(userSeedCollection.id)}
         >
           Save To Collection
         </button>

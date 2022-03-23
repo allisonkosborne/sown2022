@@ -56,3 +56,9 @@ export const updateCollection = (editedCollection) => {
     body: JSON.stringify(editedCollection),
   }).then((data) => data.json());
 };
+
+export const getUserSeedCollections = () => {
+  return fetch(`${remoteURL}/userSeedCollections?_expand=users&_expand=collection`).then(
+    (res) => res.json()
+  );
+};

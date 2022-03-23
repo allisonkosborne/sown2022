@@ -131,7 +131,7 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
 
 
         <Route
-          path="/seeds/:seedId/selectCollection"
+          path="/userSeedCollections/:seedId/selectCollection"
           element={
             <PrivateRoute>
               <SaveToCollectionCard />
