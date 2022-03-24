@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { CollectionCard } from "../collections/CollectionCard";
+import "../Sown.css"
 
-export const SaveToCollectionCard = ({ userSeedCollection, handleSaveSeedToCollection }) => {
+export const SaveToCollectionCard = ({ collection, userSeedCollection, handleSaveSeedToCollection }) => {
   return (
     <div className="card">
       <div className="card-content">
@@ -11,11 +13,11 @@ export const SaveToCollectionCard = ({ userSeedCollection, handleSaveSeedToColle
         </style>
         <picture>{/* ADD PICTURE/ICON HERE */}</picture>
         <h3>
-          <span className="card-collectionname">Test</span>
+            Name: 
+          <span className="card-collectionname"></span>
         </h3>
         
         <p>Date Made: </p>
-
         <button
           type="button"
           onClick={() => handleSaveSeedToCollection(userSeedCollection.id)}
