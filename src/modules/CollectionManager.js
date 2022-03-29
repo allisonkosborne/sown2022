@@ -8,9 +8,7 @@ export const getCollectionById = (collectionId) => {
 };
 
 export const getAllCollections = () => {
-  return fetch(`${remoteURL}/collections`).then(
-    (res) => res.json()
-  );
+  return fetch(`${remoteURL}/collections`).then((res) => res.json());
 };
 
 export const getMyCollections = () => {
@@ -42,10 +40,9 @@ export const addCollection = (newCollection) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(newCollection)
-  }).then(response => response.json());
+    body: JSON.stringify(newCollection),
+  }).then((response) => response.json());
 };
-
 
 export const updateCollection = (editedCollection) => {
   return fetch(`${remoteURL}/collections/${editedCollection.id}`, {
@@ -57,8 +54,11 @@ export const updateCollection = (editedCollection) => {
   }).then((data) => data.json());
 };
 
-export const getUserSeedCollections = () => {
-  return fetch(`${remoteURL}/userSeedCollections?_expand=users&_expand=collection`).then(
-    (res) => res.json()
-  );
+export const getUserSeedCollections = (sessionUserId) => {
+  // const collectionId = JSON.parse(
+  //   sessionStorage.getItem("sown_user")
+  // ).collectionId;
+  return fetch(
+    `${remoteURL}/userSeedCollections?_expand=users&_expand=collection?userId=${sessionUserId}`
+  ).then((res) => res.json());
 };

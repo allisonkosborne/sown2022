@@ -13,8 +13,12 @@ import { Login } from "./components/auth/Login";
 import { Register } from "./components/auth/Register";
 import { SeedEditForm } from "./components/seed/SeedEditForm";
 import { CollectionEditForm } from "./components/collections/CollectionEditForm";
-import { SelectCollectionForm } from "./components/SelectCollection/SelectCollection"
-import { SaveToCollectionCard, SelectCollectionCard } from "./components/SelectCollection/SelectCollectionCard";
+import { SelectCollectionForm } from "./components/SelectCollection/SelectCollection";
+import {
+  SaveToCollectionCard,
+  SelectCollectionCard,
+} from "./components/SelectCollection/SelectCollectionCard";
+import { SelectCollectionList } from "./components/SelectCollection/SelectCollectionList";
 
 export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
   const PrivateRoute = ({ children }) => {
@@ -129,17 +133,14 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
           }
         />
 
-
         <Route
-          path="/userSeedCollections/:seedId/selectCollection"
+          path="/userSeedCollections/:seedId/"
           element={
             <PrivateRoute>
-              <SaveToCollectionCard />
+              <SelectCollectionList />
             </PrivateRoute>
           }
         />
-
-
       </Routes>
     </>
   );

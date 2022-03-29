@@ -56,3 +56,9 @@ export const addSeedToCollection = (newSeed) => {
     body: JSON.stringify(newSeed)
   }).then(response => response.json());
 };
+
+export const getUserName = () => {
+  return fetch(`${remoteURL}/users`)
+  .then(res => res.json())
+}
+

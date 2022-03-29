@@ -5,10 +5,7 @@ import { SelectCollectionCard } from "./SelectCollectionCard"
 import { useNavigate } from "react-router";
 import { addSeedToCollection } from "../../modules/SeedManager";
 
-export const SELECTCOLLECTION = () => {
-    <>
-
-    </>
+export const SeedCollection = () => {
 }
 
 

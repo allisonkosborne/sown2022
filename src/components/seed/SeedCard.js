@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Seed.css";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 // import {
 //   addCollection,
 //   getAllCollections,
 // } from "../../modules/CollectionManager";
+import { getMyCollections } from "../../modules/CollectionManager";
 
 export const SeedCard = ({ seed, handleDeleteSeed }) => {
-  const navigate = useNavigate()
+  const sessionUser = JSON.parse(window.sessionStorage.getItem("sown_user"));
+  const sessionUserId = sessionUser.id;
+  const navigate = useNavigate();
+  const [collections, setCollections] = useState([]);
+  useEffect(() => {
+    getMyCollections(sessionUserId).then(setCollections);
+  }, []);
 
   return (
     <div className="card">
@@ -45,10 +52,35 @@ export const SeedCard = ({ seed, handleDeleteSeed }) => {
           <button>Details</button>
         </Link>
 
-        <button type="button" onClick={() => {navigate(`/userSeedCollections/1/selectCollection`)}}>Add To Collection</button>
-        {/* <button type="button" onClick={() => {navigate(`/seeds/1/selectCollection`)}}>Add To Collection</button> */}
-       
-        {/* <button>SAVE FOR COLLECTION DROPDOWN</button> */}
+        {/* <button
+          type="button"
+          onClick={() => {
+            navigate(`/userSeedCollections/1/selectCollection`);
+          }}
+        >
+          Add To Collection
+        </button> */}
+
+        <label htmlFor="collectionId" className="collection_dropdown">
+          {/* Collections */}
+        </label>
+        <select
+          className="collection_dropdown"
+          id="collectionId"
+          // onChange={handleInputChange}
+          value={collections.id}
+          name="collectionId"
+          required
+        >
+          <option value="0" className="add_to_collection">
+            Add to Collection
+          </option>
+          {collections.map((collection) => (
+            <option key={collection.id} value={collection.id}>
+              {collection.name}
+            </option>
+          ))}
+        </select>
       </div>
     </div>
   );
