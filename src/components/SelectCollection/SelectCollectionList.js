@@ -14,8 +14,6 @@ export const SelectCollectionList = () => {
   const sessionUser = JSON.parse(window.sessionStorage.getItem("sown_user"));
   const sessionUserId = sessionUser.id;
 
-  console.log(sessionUserId);
-
   const navigate = useNavigate();
 
   const getSeedCollections = () => {

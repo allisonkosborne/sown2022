@@ -25,15 +25,14 @@ export const deleteSeed = (id) => {
 //   }).then((response) => response.json());
 // };
 
-
 export const addSeed = (newSeed) => {
   return fetch(`${remoteURL}/seeds`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(newSeed)
-  }).then(response => response.json());
+    body: JSON.stringify(newSeed),
+  }).then((response) => response.json());
 };
 
 export const updateSeed = (editedSeed) => {
@@ -46,19 +45,22 @@ export const updateSeed = (editedSeed) => {
   }).then((data) => data.json());
 };
 
-
-export const addSeedToCollection = (newSeed) => {
-  return fetch(`${remoteURL}/seeds`, {
+export const addSeedToCollection = (seedToCollection) => {
+  return fetch(`${remoteURL}/userSeedCollections`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(newSeed)
-  }).then(response => response.json());
+    body: JSON.stringify(seedToCollection),
+  }).then((response) => response.json());
 };
 
 export const getUserName = () => {
-  return fetch(`${remoteURL}/users`)
-  .then(res => res.json())
-}
+  return fetch(`${remoteURL}/users`).then((res) => res.json());
+};
 
+export const getCollectionsForSeedCard = (sessionUserId, seedId) => {
+  return fetch(
+    `${remoteURL}/userSeedCollections?_expand=users&_expand=collection&usersId=${sessionUserId}&=${seedId}`
+  ).then((res) => res.json());
+};

@@ -2,36 +2,32 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; //For the Save Animal Button
 import { addCollection } from "../../modules/CollectionManager"; //Passed to the API that says animal & the Save Animal button
 import "./CollectionForm.css";
-import { getAllSeeds } from "../../modules/SeedManager";
+import { getAllSeeds, getUserName } from "../../modules/SeedManager";
+import { getUserSeedCollections } from "../../modules/CollectionManager";
 // import { getAllLocations } from '../../modules/LocationManager';
 // import { getAllCustomers } from '../../modules/CustomerManager';
 
 export const CollectionForm = () => {
   // State will contain both animal data as well as an isLoading flag.
   // Define the initial state of the form inputs with useState()
+  const sessionUser = JSON.parse(window.sessionStorage.getItem("sown_user"));
+  const sessionUserId = sessionUser.id;
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    getUserName(sessionUserId).then(setUsers);
+  }, []);
 
   const [collection, setCollection] = useState({
     name: "",
-    userId: 0,
+    userId: sessionUserId,
     dateMade: "",
     details: "",
-    // locationId: 0,
-    // customerId: 0
   });
-  //defining properties in the object; initialize values
 
   const [isLoading, setIsLoading] = useState(false);
-  //if true, it wont allow you to use the form;
-
-  // you will need the the `getAll` in the LocationsManager and CustomersManager to complete this section
   const [seeds, setSeeds] = useState([]);
-  // const [customers, setCustomers] = useState([]); //both set to empty arrays - any value it gets set to will be an array
 
   const navigate = useNavigate();
-
-  //when a field changes, update state. The return will re-render and display based on the values in state
-  // NOTE! What's happening in this function can be very difficult to grasp. Read it over many times and ask a lot questions about it.
-  //Controlled component
 
   const handleControlledInputChange = (event) => {
     /* When changing a state object or array,
@@ -42,38 +38,24 @@ export const CollectionForm = () => {
     if (event.target.id.includes("Id")) {
       selectedVal = parseInt(selectedVal);
     }
-    /* Animal is an object with properties.
-		Set the property to the new value
-		using object bracket notation. */
     newCollection[event.target.id] = selectedVal;
-    // update state
     setCollection(newCollection);
-    //kinda like a listener
   };
 
   useEffect(() => {
-    //load location data and setState
-    // getAllLocations().then(setLocations)
     getAllSeeds().then(setSeeds);
-  }, []);
-  //just run one time with []
-
-  useEffect(() => {
-    //load customer data and setState
-    // getAllCustomers().then(setCustomers)
   }, []);
 
   const handleClickSaveCollection = (event) => {
     event.preventDefault(); //Prevents the browser from submitting the form
 
     const seedId = seeds.collectionId;
-    // const customerId = animal.customerId
 
     if (seedId === 0) {
       window.alert("Please select a seed");
     } else {
-      //invoke addAnimal passing animal as an argument.
-      //once complete, change the url and display the animal list
+      //invoke addCollection passing collection as an argument.
+      //once complete, change the url and display the collection list
       addCollection(collection).then(() => navigate("/collections"));
     }
   };
@@ -85,6 +67,7 @@ export const CollectionForm = () => {
         url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Gloria+Hallelujah&display=swap');
       </style>
       <h2 className="collectionForm__title">New Collection</h2>
+
       <fieldset>
         <div className="form-group">
           <label htmlFor="name">Collection name:</label>

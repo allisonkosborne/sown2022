@@ -13,7 +13,7 @@ import { Login } from "./components/auth/Login";
 import { Register } from "./components/auth/Register";
 import { SeedEditForm } from "./components/seed/SeedEditForm";
 import { CollectionEditForm } from "./components/collections/CollectionEditForm";
-import { SelectCollectionForm } from "./components/SelectCollection/SelectCollection";
+
 import {
   SaveToCollectionCard,
   SelectCollectionCard,

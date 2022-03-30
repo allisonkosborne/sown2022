@@ -5,16 +5,39 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 //   addCollection,
 //   getAllCollections,
 // } from "../../modules/CollectionManager";
-import { getMyCollections } from "../../modules/CollectionManager";
+import {
+  getMyCollections,
+  updateCollection,
+} from "../../modules/CollectionManager";
+import { addSeedToCollection } from "../../modules/SeedManager";
+import { getCollectionsForSeedCard } from "../../modules/SeedManager";
 
 export const SeedCard = ({ seed, handleDeleteSeed }) => {
   const sessionUser = JSON.parse(window.sessionStorage.getItem("sown_user"));
   const sessionUserId = sessionUser.id;
   const navigate = useNavigate();
   const [collections, setCollections] = useState([]);
+  const [seedCollections, setSeedCollections] = useState([]);
+
   useEffect(() => {
     getMyCollections(sessionUserId).then(setCollections);
+    getCollectionsForSeedCard(sessionUserId).then(setSeedCollections);
   }, []);
+
+  const handleDropdownChange = (evt) => {
+    // const stateToChange = { ...collections };
+    // stateToChange[evt.target.id] = evt.target.value;
+    // setCollections(stateToChange);
+    const collectionId = evt.target.value;
+    const seedId = seed.id;
+
+    const newSeedToCollection = {
+      usersId: sessionUserId,
+      collectionId: collectionId,
+      seedId: seedId,
+    };
+    addSeedToCollection(newSeedToCollection);
+  };
 
   return (
     <div className="card">
@@ -52,22 +75,13 @@ export const SeedCard = ({ seed, handleDeleteSeed }) => {
           <button>Details</button>
         </Link>
 
-        {/* <button
-          type="button"
-          onClick={() => {
-            navigate(`/userSeedCollections/1/selectCollection`);
-          }}
-        >
-          Add To Collection
-        </button> */}
-
         <label htmlFor="collectionId" className="collection_dropdown">
           {/* Collections */}
         </label>
         <select
           className="collection_dropdown"
           id="collectionId"
-          // onChange={handleInputChange}
+          onChange={handleDropdownChange}
           value={collections.id}
           name="collectionId"
           required
@@ -79,8 +93,13 @@ export const SeedCard = ({ seed, handleDeleteSeed }) => {
             <option key={collection.id} value={collection.id}>
               {collection.name}
             </option>
+            //Creates dropdown for user's collections
           ))}
         </select>
+        <div>
+          <h3>Seed Card Collections</h3>
+          <p>{seedCollections.map((seedCollection) => seedCollection.name)}</p>
+        </div>
       </div>
     </div>
   );
