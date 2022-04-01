@@ -5,18 +5,29 @@ import {
 } from "../../modules/CollectionManager";
 import "./CollectionDetail.css";
 import { useParams, useNavigate } from "react-router-dom";
+import { getSeedsForCollectionDetail } from "../../modules/SeedManager";
+//step 4
 
 export const CollectionDetail = () => {
+  const sessionUser = JSON.parse(window.sessionStorage.getItem("sown_user"));
+  const sessionUserId = sessionUser.id; //both are step 1
+  const [isLoading, setIsLoading] = useState(true);
+  const { collectionId } = useParams();
+  const navigate = useNavigate();
+
+  const [seedsToCollectionDetail, setSeedsToCollectionDetail] = useState([]);
+  //step 2
+  useEffect(() => {
+    getSeedsForCollectionDetail(sessionUserId).then(setSeedsToCollectionDetail);
+  }, []);
+  //step 3
+
   const [collection, setCollection] = useState({
     name: "",
     userId: "",
     dateMade: "",
     details: "",
   });
-
-  const [isLoading, setIsLoading] = useState(true);
-  const { collectionId } = useParams();
-  const navigate = useNavigate();
 
   const handleDelete = () => {
     //invoke the delete function in AnimalManger and re-direct to the animal list.
@@ -40,7 +51,7 @@ export const CollectionDetail = () => {
         url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Gloria+Hallelujah&display=swap');
       </style>
       <h3 className="collection__name">Collection Name: {collection.name}</h3>
-      <div className="collection__userId">User ID: {collection.userId}</div>
+      {/* <div className="collection__userId">User ID: {collection.userId}</div> */}
       <div className="collection__dateMade">
         Date Made: {collection.dateMade}
       </div>
@@ -52,6 +63,10 @@ export const CollectionDetail = () => {
       {/* <button type="button" disabled={isLoading} onClick={handleDelete}>
         Delete
       </button> */}
+      <div className="seeds_of_collection">
+        <h3>Seeds: </h3>
+        <p>{seedsToCollectionDetail.map((seed) => seed.name)}</p>
+      </div>
     </section>
   );
 };

@@ -115,3 +115,11 @@ button.seed-button {
 /* .add_to_collection {
   font-size: 30px;
 } */
+
+.collection_names h3 {
+  font-size: 24px;
+}
+
+.collection_names {
+  font-size: 22px;
+}

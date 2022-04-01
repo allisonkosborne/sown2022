@@ -61,6 +61,12 @@ export const getUserName = () => {
 
 export const getCollectionsForSeedCard = (sessionUserId, seedId) => {
   return fetch(
-    `${remoteURL}/userSeedCollections?_expand=users&_expand=collection&usersId=${sessionUserId}&=${seedId}`
+    `${remoteURL}/userSeedCollections?_expand=users&_expand=collection&usersId=${sessionUserId}&seedId=${seedId}`
+  ).then((res) => res.json());
+};
+
+export const getSeedsForCollectionDetail = (sessionUserId, seed) => {
+  return fetch(
+    `${remoteURL}/userSeedCollections?_expand=users&_expand=collection&usersId=${sessionUserId}&collectionId=${seed}`
   ).then((res) => res.json());
 };

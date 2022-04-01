@@ -1,4 +1,4 @@
-import React, { useReducer, useEffects } from "react";
+import React, { useReducer } from "react";
 import { useNavigate, useResolvedPath } from "react-router-dom";
 import { PropsAndState } from "./components/PropsAndState";
 import "./Home.css";

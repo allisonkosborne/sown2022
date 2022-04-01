@@ -16,13 +16,20 @@ export const SeedCard = ({ seed, handleDeleteSeed }) => {
   const sessionUser = JSON.parse(window.sessionStorage.getItem("sown_user"));
   const sessionUserId = sessionUser.id;
   const navigate = useNavigate();
+
   const [collections, setCollections] = useState([]);
   const [seedCollections, setSeedCollections] = useState([]);
 
   useEffect(() => {
     getMyCollections(sessionUserId).then(setCollections);
-    getCollectionsForSeedCard(sessionUserId).then(setSeedCollections);
+    getCollectionsForSeedCard(sessionUserId, seed.id).then(
+      (seedCollections) => {
+        setSeedCollections(seedCollections);
+      }
+    );
   }, []);
+
+  //seed.id because prop
 
   const handleDropdownChange = (evt) => {
     // const stateToChange = { ...collections };
@@ -96,9 +103,13 @@ export const SeedCard = ({ seed, handleDeleteSeed }) => {
             //Creates dropdown for user's collections
           ))}
         </select>
-        <div>
-          <h3>Seed Card Collections</h3>
-          <p>{seedCollections.map((seedCollection) => seedCollection.name)}</p>
+        <div className="collection_names">
+          <h3 className="collection_title">Collections:</h3>
+          <p>
+            {seedCollections.map(
+              (seedCollection) => seedCollection.collection.name
+            )}
+          </p>
         </div>
       </div>
     </div>
