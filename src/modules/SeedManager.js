@@ -65,8 +65,8 @@ export const getCollectionsForSeedCard = (sessionUserId, seedId) => {
   ).then((res) => res.json());
 };
 
-export const getSeedsForCollectionDetail = (sessionUserId, seed) => {
+export const getSeedsForCollectionDetail = (sessionUserId) => {
   return fetch(
-    `${remoteURL}/userSeedCollections?_expand=users&_expand=collection&usersId=${sessionUserId}&collectionId=${seed}`
+    `${remoteURL}/userSeedCollections?_expand=users&_expand=collection&usersId=${sessionUserId}&_expand=seed`
   ).then((res) => res.json());
 };

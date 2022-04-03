@@ -4,6 +4,7 @@ import { PropsAndState } from "./components/PropsAndState";
 import "./Home.css";
 import { getUserName } from "./modules/SeedManager";
 import { useEffect, useState } from "react";
+import { GrowingPlants } from "./components/GrowingPlants";
 
 export const Home = () => {
   const [users, setUsers] = useState([]);
@@ -14,7 +15,6 @@ export const Home = () => {
       setUsers(usersFromAPI);
     });
   };
-
   useEffect(() => {
     userNameIntro();
   }, []);
@@ -34,6 +34,23 @@ export const Home = () => {
         <p>
           <PropsAndState yourName={users.name} />
         </p>
+
+        <html>
+          <head>
+            <title>Plant Grow</title>
+          </head>
+          <body>
+            <div class="field">
+              <div class="tree tree--1">
+                <span class="tree_leaf tree_leaf--top-left"></span>
+                <span class="tree_leaf tree_leaf--top-right"></span>
+                <span class="tree_leaf tree_leaf--right"></span>
+                <span class="tree_leaf tree_leaf--left"></span>
+              </div>
+              <img src="grass.png" class="grass"></img>
+            </div>
+          </body>
+        </html>
 
         <div className="first-paragraph">
           <small>

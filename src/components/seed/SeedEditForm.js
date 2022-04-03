@@ -19,7 +19,6 @@ export const SeedEditForm = () => {
     origin: "",
     frostHardy: "",
     details: "",
-    
   });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -46,7 +45,6 @@ export const SeedEditForm = () => {
       //once complete, change the url and display the animal list
       addSeed(seed).then(() => navigate("/seeds"));
     }
-
 
     // This is an edit, so we need the id
     const editedSeed = {
@@ -107,98 +105,97 @@ export const SeedEditForm = () => {
               id="packedForDate"
               value={seed.packedForDate}
             />
+
+            <label htmlFor="directSow">Direct Sow</label>
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="directSow"
+              value={seed.directSow}
+            />
+
+            <label htmlFor="daysToGerminate">Days To Germinate</label>
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="daysToGerminate"
+              value={seed.daysToGerminate}
+            />
+
+            <label htmlFor="daysToMaturity">Days To Maturity</label>
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="daysToMaturity"
+              value={seed.daysToMaturity}
+            />
+
+            <label htmlFor="seedSpacing">Seed Spacing</label>
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="seedSpacing"
+              value={seed.seedSpacing}
+            />
+
+            <label htmlFor="temperature">Temperature</label>
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="temperature"
+              value={seed.temperature}
+            />
+
+            <label htmlFor="lightNeeds">Light Needs</label>
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="lightNeeds"
+              value={seed.lightNeeds}
+            />
+
+            <label htmlFor="origin">Origin</label>
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="origin"
+              value={seed.origin}
+            />
+
+            <label htmlFor="frostHardy">Frost Hardy</label>
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="frostHardy"
+              value={seed.frostHardy}
+            />
+
+            <label htmlFor="details">Details</label>
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="details"
+              value={seed.details}
+            />
           </div>
-
-          <label htmlFor="directSow">Direct Sow</label>
-          <input
-            type="text"
-            required
-            className="form-control"
-            onChange={handleFieldChange}
-            id="directSow"
-            value={seed.directSow}
-          />
-
-          <label htmlFor="daysToGerminate">Days To Germinate</label>
-          <input
-            type="text"
-            required
-            className="form-control"
-            onChange={handleFieldChange}
-            id="daysToGerminate"
-            value={seed.daysToGerminate}
-          />
-
-          <label htmlFor="daysToMaturity">Days To Maturity</label>
-          <input
-            type="text"
-            required
-            className="form-control"
-            onChange={handleFieldChange}
-            id="daysToMaturity"
-            value={seed.daysToMaturity}
-          />
-
-          <label htmlFor="seedSpacing">Seed Spacing</label>
-          <input
-            type="text"
-            required
-            className="form-control"
-            onChange={handleFieldChange}
-            id="seedSpacing"
-            value={seed.seedSpacing}
-          />
-
-          <label htmlFor="temperature">Temperature</label>
-          <input
-            type="text"
-            required
-            className="form-control"
-            onChange={handleFieldChange}
-            id="temperature"
-            value={seed.temperature}
-          />
-
-          <label htmlFor="lightNeeds">Light Needs</label>
-          <input
-            type="text"
-            required
-            className="form-control"
-            onChange={handleFieldChange}
-            id="lightNeeds"
-            value={seed.lightNeeds}
-          />
-
-          <label htmlFor="origin">Origin</label>
-          <input
-            type="text"
-            required
-            className="form-control"
-            onChange={handleFieldChange}
-            id="origin"
-            value={seed.origin}
-          />
-
-          <label htmlFor="frostHardy">Frost Hardy</label>
-          <input
-            type="text"
-            required
-            className="form-control"
-            onChange={handleFieldChange}
-            id="frostHardy"
-            value={seed.frostHardy}
-          />
-
-          <label htmlFor="details">Details</label>
-          <input
-            type="text"
-            required
-            className="form-control"
-            onChange={handleFieldChange}
-            id="details"
-            value={seed.details}
-          />
-
           {/* <label htmlFor="collection">Assign to Collection: </label>
           <select
             value={seed.collectionId}
@@ -214,7 +211,6 @@ export const SeedEditForm = () => {
               </option>
             ))}
           </select> */}
-    
 
           <div className="alignRight">
             <button
@@ -222,7 +218,8 @@ export const SeedEditForm = () => {
               disabled={isLoading}
               onClick={updateExistingSeed}
               className="btn btn-primary"
-            >SOW
+            >
+              SOW
             </button>
           </div>
         </fieldset>

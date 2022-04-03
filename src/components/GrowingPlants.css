@@ -1,0 +1,16 @@
+.field {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.grass {
+  width: 50%;
+  position: absolute;
+  bottom: -2px;
+  left: 41%;
+}

@@ -16,11 +16,16 @@ export const CollectionDetail = () => {
   const navigate = useNavigate();
 
   const [seedsToCollectionDetail, setSeedsToCollectionDetail] = useState([]);
+
   //step 2
   useEffect(() => {
     getSeedsForCollectionDetail(sessionUserId).then(setSeedsToCollectionDetail);
   }, []);
   //step 3
+
+  useEffect(() => {
+    console.log(seedsToCollectionDetail);
+  }, [seedsToCollectionDetail]);
 
   const [collection, setCollection] = useState({
     name: "",
@@ -65,7 +70,9 @@ export const CollectionDetail = () => {
       </button> */}
       <div className="seeds_of_collection">
         <h3>Seeds: </h3>
-        <p>{seedsToCollectionDetail.map((seed) => seed.name)}</p>
+        <p>
+          {seedsToCollectionDetail.map((seed) => seedsToCollectionDetail.seed)}
+        </p>
       </div>
     </section>
   );
