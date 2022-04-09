@@ -70,9 +70,10 @@ export const CollectionDetail = () => {
       </button> */}
       <div className="seeds_of_collection">
         <h3>Seeds: </h3>
-        <p>
-          {seedsToCollectionDetail.map((seed) => seedsToCollectionDetail.seed)}
-        </p>
+        <ul>
+          {seedsToCollectionDetail.map((seed) => seed.seed.name)}
+          {/* Look for example in food truck */}
+        </ul>
       </div>
     </section>
   );
