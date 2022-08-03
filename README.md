@@ -1,3 +1,32 @@
+#Sown: A Seed Saver's App
+An app made for all those seed collectors out there who anxiously await each seasonal harvest!
+
+##Summary
+This was my very first exploration into the world of React. Since I am an avid gardener, I immediately was struck by the idea of a simply way for users to store seed and growth information. This project was a culmination of six months of hard work in the front end portion of our year-long software engineering bootcamp.
+
+##Technologies
+
+- React
+- CSS3
+- HTML5
+- Miro
+- Javascript
+
+##Functionality Includes:
+
+- CRUD
+  - CREATE user profiles, seed cards, & seed collections
+  - READ user's seed profiles & seed information such as latin name, light needs, seed spacing, etc.
+  - UPDATE seed cards, seed collections, & user profiles
+  - DELETE seed cards & seed collections
+
+##Relevant Links
+<a href="https://github.com/allisonkosborne/sown2022">Code</a>
+<a href="https://miro.com/app/board/uXjVOIuPK80=/">Wireframe</a>
+
+##Project Screenshots
+<img src="/public/sown1photo.png" height="400" >
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
