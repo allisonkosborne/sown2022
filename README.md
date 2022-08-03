@@ -2,7 +2,8 @@
 
 An app made for all those seed collectors out there who anxiously await each seasonal harvest!
 
-##Summary
+## Summary
+
 This was my very first exploration into the world of React. Since I am an avid gardener, I immediately was struck by the idea of a simply way for users to store seed and growth information. This project was a culmination of six months of hard work in the front end portion of our year-long software engineering bootcamp.
 
 ## Technologies
@@ -29,6 +30,18 @@ This was my very first exploration into the world of React. Since I am an avid g
 ## Project Screenshots
 
 <img src="/public/sown1photo.png" height="400" >
+<img src="/public/sown2photo.png" height="400" >
+<img src="/public/sown3photo.png" height="400" >
+<img src="/public/sown4photo.png" height="400" >
+<img src="/public/sown5photo.png" height="400" >
+
+## Future Goal
+
+- I would love to eventually add more features such as weather predictions, soil preferences for the area of the country the user lives in, and a way to communicate the user where the seeds they are running low on are being sold in their area.
+
+## Thank You
+
+I would love to thank Lynn Samuelson, Sydney Noh, and Trevor Guinn for continuously offering their time, support, and wisdom throughout the journey our class has taken through front end development.
 
 # Getting Started with Create React App
 
